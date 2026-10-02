@@ -17,7 +17,7 @@
   <!-- Aquí va tu contenido -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Justo (DWEC)</a>
+      <a class="navbar-brand" href="index.html">Justo Cenit Ruiz(DWEC)</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -86,7 +86,7 @@
 
     <section class="mb-4">
       <h2>2. Analisis de motores</h2>
-      <p>La mayoria de navegadores actuales usan chromium para unificar estandares y reducir costes, aunque fuera de este grupo sigue habiendo alternativas diferentes e independientes como gecko (de firefox) y webkit (de safari). Para los desarrolladores esto facilita el ser compatible en casi todos los dispositivos pero sigue exigiendo probar en motores que no sean Chromium para evitar posibles fallos. </p>
+      <p>Muchos navegadores utilizan Chromium porque proporciona una base común para desarrollar un navegador y utiliza el motor de renderizado Blink. Chrome, Edge y Opera están basados en Chromium, aunque cada navegador puede añadir sus propias funciones. Firefox utiliza Gecko, mientras que Safari utiliza WebKit. Por eso no todos los navegadores interpretan exactamente igual una página web, especialmente cuando se utilizan características nuevas o que todavía no tienen el mismo nivel de compatibilidad. Para un desarrollador web esto significa que no basta con probar una página en un único navegador, sino que es recomendable comprobarla en diferentes motores y también en dispositivos móviles. De esta forma se pueden detectar diferencias de compatibilidad y adaptar la página cuando sea necesario.</p>
     </section>
 
     <section class="mb-4">
@@ -95,7 +95,9 @@
         <div class="card-body">
           <h5 class="card-title">Propiedad CSS: subgrid</h5>
           <p class="card-text">
-            Aunque hoy en dia esta bastante extendida habia versiones antiguas de safari para ios que tenian limitaciones en el soporte de css subgrid, esto obligaba a usar alternativas de diseño 
+            Una característica que no ha tenido el mismo soporte en todos los navegadores es CSS Subgrid. Esta función permite que un elemento que utiliza CSS Grid pueda utilizar las filas o columnas de la cuadrícula de su elemento padre.
+            Según Can I Use, Safari no soportó CSS Subgrid hasta la versión 16.0. Las versiones de Safari comprendidas entre la 3.1 y la 15.6 aparecen como no compatibles. En cambio, Safari 16.0 y posteriores sí lo soportan. Firefox lo soporta desde la versión 71 y Chrome y Edge desde la versión 117.
+            Esto demuestra que una característica de CSS puede funcionar correctamente en un navegador moderno y no estar disponible en versiones anteriores de otro navegador.
           </p>
           <p class="text-muted mb-2"><strong>Fecha de consulta:</strong>1 de octubre de 2026</p>
           <a href="https://caniuse.com/css-subgrid" target="_blank" class="btn btn-primary btn-sm">Ver en Can I use</a>
