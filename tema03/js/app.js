@@ -1,5 +1,5 @@
 /*
-  Tarea 3 · DWEC · [Tu nombre y apellidos]
+  Tarea 3 · DWEC · Justo Cenit Ruiz
   Variables, tipos y conversiones.
 
   Cómo usar esta plantilla:
@@ -19,6 +19,25 @@ function ejercicio1() {
   // Ejemplo: una variable y su typeof en la consola
   const edad = 20;   // number
   console.log("edad =", edad, "→", typeof edad);
+
+  const nombre = "Justo"; //String
+console.log("nombre =",nombre, "→", typeof nombre);
+
+  const falso= false; //boolean
+  console.log("falso =",falso ,"→", typeof falso );
+
+  const nulo= null; //null
+  console.log("nulo =" , nulo ,"→", typeof nulo);
+
+  let variableLet; //undefined
+  console.log("variableLet =", variableLet, "→", typeof variableLet);
+
+  const numeroGrande= 10n; //bigint
+  console.log("numeroGrande =", numeroGrande, "→", typeof numeroGrande);
+
+  //dar valor a let y volver a mostrar tipo
+  variableLet= 50;
+  console.log("variableLet (nueva)=", variableLet, "→", typeof variableLet);
 
   // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
   //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
