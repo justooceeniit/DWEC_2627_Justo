@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,7 @@
   <!-- Iconos de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!--
@@ -90,21 +92,57 @@ console.log("nombre =",nombre, "→", typeof nombre);
         <div class="table-responsive">
           <table class="table table-sm table-striped align-middle mb-2">
             <thead class="table-primary">
-              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+              <tr>
+                <th scope="col">Variable</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">nombre</th><td><code>"Justo"</code></td><td><code>string</code></td><td><code>string</code></td></tr>
-              <tr><th scope="row">falso</th><td><code>false</code></td><td><code>boolean</code></td><td><code>boolean</code></td></tr>
-              <tr><th scope="row">nulo</th><td><code>null</code></td><td><code>null</code></td><td><code>object</code></td></tr>
-              <tr><th scope="row">variableLet</th><td><code>undefined</code></td><td><code>undefined</code></td><td><code>undefined</code></td></tr>
-              <tr><th scope="row">numeroGrande</th><td><code>10n</code></td><td><code>bigint</code></td><td><code>bigint</code></td></tr>
+              <tr>
+                <th scope="row">edad</th>
+                <td><code>20</code></td>
+                <td><code>number</code></td>
+                <td><code>number</code></td>
+              </tr>
+              <tr>
+                <th scope="row">nombre</th>
+                <td><code>"Justo"</code></td>
+                <td><code>string</code></td>
+                <td><code>string</code></td>
+              </tr>
+              <tr>
+                <th scope="row">falso</th>
+                <td><code>false</code></td>
+                <td><code>boolean</code></td>
+                <td><code>boolean</code></td>
+              </tr>
+              <tr>
+                <th scope="row">nulo</th>
+                <td><code>null</code></td>
+                <td><code>null</code></td>
+                <td><code>object</code></td>
+              </tr>
+              <tr>
+                <th scope="row">variableLet</th>
+                <td><code>undefined</code></td>
+                <td><code>undefined</code></td>
+                <td><code>undefined</code></td>
+              </tr>
+              <tr>
+                <th scope="row">numeroGrande</th>
+                <td><code>10n</code></td>
+                <td><code>bigint</code></td>
+                <td><code>bigint</code></td>
+              </tr>
             </tbody>
           </table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> Al usar typeof con null devuelve "object" en lugar de "null" por un error historico en el diseño inicial de JS</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> Al usar typeof con null devuelve "object" en lugar de
+          "null" por un error historico en el diseño inicial de JS</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
@@ -125,8 +163,96 @@ console.log("nombre =",nombre, "→", typeof nombre);
       <div class="card-body">
         <!--2) el codigo de diego y mi codigo de js-->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2(){
-        console.log("ejercicio2 . Conversion explicita")  
-        }
+  console.log("--- Ejercicio 2 · Conversiones explícitas ---");
+
+  //string (123)
+  const c1 =String(123); //espero "123"
+  console.log('String(123) →',c1 , typeof c1);
+
+  //number ("123")
+  const c2= Number("123"); //espero 123
+  console.log('Number("123")→', c2, typeof c2);
+
+  //number ("12abc")
+  const c3= Number("12abc"); //espero 12 ya que al no ser parseado abc va a dar nan
+  console.log('Number("12abc") →',c3, typeof c3);
+
+  //number ("")
+  const c4= Number(""); //espero 0
+  console.log('Number("") → ', c4, typeof c4);
+
+  //number (true)
+  const c5= Number(true); // espero 1 ya que si es false es 0, si es true es 1
+  console.log('Number(true) →',c5, typeof c5);
+
+  //boolean (0)
+  const c6 =Boolean(0); //espero false
+  console.log('Boolean(0) →', c6, typeof c6);
+
+  //boolean("texto")
+  const c7 = Boolean("texto"); //espero true
+  console.log('Boolean("texto") →',c7, typeof c7);
+  
+  //boolean ("")
+  const c8= Boolean(""); //espero falso
+  console.log('Boolean("") →',c8, typeof c8);
+}</code></pre>
+
+        <!--Tabla conversion /espero /sale-->
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col">Conversion</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>String(123)</code></th>
+                <td><code>"123" (string)</code></td>
+                <td><code>"123" (string)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Number("123")</code></th>
+                <td><code>123 (number)</code></td>
+                <td><code>123 (number)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Number("12abc")</code></th>
+                <td><code>12 (number)</code></td>
+                <td><code>NaN (number)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Number("")</code></th>
+                <td><code>Nan (number)</code></td>
+                <td><code>0 (number)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Number(true)</code></th>
+                <td><code>1 (number)</code></td>
+                <td><code>1 (number)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Boolean(0)</code></th>
+                <td><code>false (boolean)</code></td>
+                <td><code>false (boolean)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Boolean("texto")</code></th>
+                <td><code>true (boolean)</code></td>
+                <td><code>true (boolean)</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>Boolean("")</code></th>
+                <td><code>false (boolean)</code></td>
+                <td><code>false (boolean)</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
       </div>
     </section>
 
