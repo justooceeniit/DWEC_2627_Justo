@@ -48,14 +48,25 @@ console.log("nombre =",nombre, "→", typeof nombre);
 function ejercicio2() {
   console.log("--- Ejercicio 2 · Conversiones explícitas ---");
 
-  // Ejemplo: una conversión, tu predicción y el resultado con su tipo
-  const a = String(123);   // espero [tu predicción]
-  console.log("String(123) →", a, typeof a);
+  //string (123)
+  const c1 =String(123); //espero "123"
+  console.log('String(123) →',c1 , typeof c1);
 
-  // TODO: el resto de conversiones obligatorias, cada una con su «espero …»:
-  //       Number("123"), Number("12abc"), Number(""), Number(true),
-  //       Boolean(0), Boolean("texto") y Boolean("").
-  // TODO: muestra en la consola el resultado y el typeof de cada una.
+  //number ("123")
+  const c2= Number("123"); //espero 123
+  console.log('Number("123")→', c2, typeof c2);
+
+  //number ("12abc")
+  const c3= Number("12abc"); //espero 12 ya que al no ser parseado abc va a dar nan
+  console.log('Number("12abc") →',c3, typeof c3);
+
+  //number ("")
+  const c4= Number(""); //espero 0
+  console.log('Number("") → ', c4, typeof c4);
+
+  //number (true)
+  const c5= Number(true); // espero 1 ya que si es false es 0, si es true es 1
+  console.log('Number(true) →',c5, typeof c5);
 }
 
 
