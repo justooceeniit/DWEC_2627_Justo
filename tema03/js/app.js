@@ -86,16 +86,25 @@ function ejercicio2() {
 function ejercicio3() {
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
-  // Ejemplo: una expresión que mezcla tipos
-  console.log('"5" - 2 →', "5" - 2);   // espero [tu predicción]
+  // 1) expresion mezclando tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero 3 (la resta lo convierte a num)
+  console.log('"5" + 2 →', "5" + 2);   // espero "52" (la suma concatena strings)
+  console.log('"5" * "2" →', "5" * "2");   // espero 10 (la multiplicación lo convierte a num)
+  console.log('"10" / 2 →', "10" / 2);   // espero 5 (la división lo convierte a num)
+  console.log('"hola" - 2 →', "hola" - 2);   // espero NaN (la resta no puede convertir "hola" a número)
+  console.log('true + 3 →', true + 3);   // espero 4 (la suma convierte true a 1)
 
-  // TODO: cinco expresiones más que mezclen tipos (al menos dos inventadas por ti), cada una con su «espero …».
 
-  // Ejemplo: la misma pareja comparada con == y con ===
-  console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
-  console.log('5 === "5" →', 5 === "5");   // espero [tu predicción]
-
-  // TODO: haz lo mismo con 0 y false, y con null y undefined.
+  //comparaciones con == y ==
+  //pareja ejemplo 5 y "5"
+  console.log('5 == "5" →', 5 == "5");     // espero true(coersion de tipos)
+  console.log('5 === "5" →', 5 === "5");   // espero false(tipo distinto)
+  //pareja 0 y false
+  console.log('0 == false →', 0 == false); // espero true(false convierte a 0)
+  console.log('0 === false →', 0 === false); // espero false(tipo distinto)
+  //pareja null y undefined
+  console.log('null == undefined →', null == undefined); // espero true(igualdad especial)
+  console.log('null === undefined →', null === undefined); // espero false(tipos distintos)
 }
 
 
