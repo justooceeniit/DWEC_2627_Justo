@@ -273,7 +273,6 @@ console.log("nombre =",nombre, "→", typeof nombre);
         <!--3) el codigo de diego y mi codigo de js-->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3(){
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
-  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
   // 1) expresion mezclando tipos
   console.log('"5" - 2 →', "5" - 2);   // espero 3 (la resta lo convierte a num)
@@ -295,7 +294,96 @@ console.log("nombre =",nombre, "→", typeof nombre);
   console.log('null == undefined →', null == undefined); // espero true(igualdad especial)
   console.log('null === undefined →', null === undefined); // espero false(tipos distintos)
 }</code></pre>
-    <section
+    <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col">Expresión</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>"5" - 2</code></th>
+                <td><code>3</code></td>
+                <td><code>3</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>"5" + 2</code></th>
+                <td><code>"52"</code></td>
+                <td><code>"52"</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>"5" * "2"</code></th>
+                <td><code>10</code></td>
+                <td><code>10</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>"10" / 2</code></th>
+                <td><code>5</code></td>
+                <td><code>5</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>"hola" - 2</code></th>
+                <td><code>NaN</code></td>
+                <td><code>NaN</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>true + 3</code></th>
+                <td><code>4</code></td>
+                <td><code>4</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>5 == "5"</code></th>
+                <td><code>true</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>5 === "5"</code></th>
+                <td><code>false</code></td>
+                <td><code>false</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>0 == false</code></th>
+                <td><code>true</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>0 === false</code></th>
+                <td><code>false</code></td>
+                <td><code>false</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>null == undefined</code></th>
+                <td><code>true</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>null === undefined</code></th>
+                <td><code>false</code></td>
+                <td><code>false</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!--Frase de explicacion-->
+        <p class="small mb-0"><strong>Cuando manda la cadena y cuando el numero?</strong>Con suma (<code>+</code>) si al menos 1 operador es texto manda la cadena y lo que hace es concatenar, por otro lado , en operaciones aritmeticas como la resta, multiplicacion o division manda el numero y js fuerza la conversion a numero. Con <code>==</code> se fuerzan tipos generando resultados que pueden engañar, por eso se recomienda usar la igualdad estricta (<code>===</code>).</p>
+      </div>
+
+      <!--Boton para comprobar funcionamiento-->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio3()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+
+      </div>
+
+      <!--Ejercicio 4-->
+
+      
 
 
 
