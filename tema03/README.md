@@ -1,16 +1,8 @@
 # Tarea 3 · Variables, tipos y conversiones
 
-**Autor:** [Justo Cenit Ruiz] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Autor:** Justo Cenit Ruiz · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
-> **Plantilla de la tarea 3.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema03`.
-> 2. `index.html` trae la card del ejercicio 1 como modelo: cópiala para los ejercicios 2, 3 y 4.
-> 3. `js/app.js` trae una función por ejercicio: escribe tu código donde pone `TODO`.
-> 4. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 5. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
-
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live**, abrir la consola con F12 y pulsar «Ejecutar» en cada ejercicio.]
+En esta carpeta está la práctica del tema 3 sobre variables, tipos y conversiones de DWEC. Para verla funcionando solo hay que abrir la carpeta en VS Code, pulsar en **Go Live**, abrir la consola del navegador con <kbd>F12</kbd> y darle a «Ejecutar» en cada ejercicio.
 
 ## Capturas
 
@@ -18,40 +10,46 @@
 
 <img src="capturas/a-pagina.png" alt="La página entera con mi nombre en la navbar" width="600">
 
-[Qué se ve: tu nombre en la navbar, las cuatro cards y los fallos de predicción marcados.]
+Vista completa de la página con mi nombre en la navbar, las cuatro cards de los ejercicios maquetadas con Bootstrap y los fallos de predicción marcados con los badges rojos.
 
 ### b) Consola del ejercicio 1
 
 ![Consola del ejercicio 1](capturas/b-consola-ej1.png)
 
-[Qué se ve, en una o dos líneas.]
+Salida por consola de los 6 tipos de variables obligatorios con su typeof y la reasignación de la variable declarada con let.
 
 ### c) Consola del ejercicio 2
 
 ![Consola del ejercicio 2](capturas/c-consola-ej2.png)
 
-[Qué se ve, en una o dos líneas.]
+Resultado de las 8 conversiones explícitas hechas con String(), Number() y Boolean() junto con el typeof que devuelve cada una.
 
 ### d) Consola del ejercicio 3
 
 ![Consola del ejercicio 3](capturas/d-consola-ej3.png)
 
-[Qué se ve, en una o dos líneas.]
+Comprobación de las expresiones con mezcla de tipos para ver la coerción implícita y las comparaciones con == y con ===.
 
 ### e) Consola del ejercicio 4, con el error de la const
 
 ![Consola del ejercicio 4 con el error de la const](capturas/e-consola-ej4.png)
 
-[Qué se ve, en una o dos líneas.]
+Consola con los dos mensajes de la ficha (uno con plantilla y otro con +), la comprobación con === dando true y el TypeError provocado a mano al intentar reasignar una const.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué conversiones te resultaron más intuitivas y cuáles te sorprendieron? Pon ejemplos concretos de tus tablas.]
+Al hacer las pruebas de las tablas, lo que me pareció más normal y lógico fueron las conversiones directas como `String(123)` pasando a texto o `Boolean("texto")` dando `true` al tener contenido. En cambio, lo que mass me chocó y donde fallé la predicción fue con `Number("")`, porque esperaba que diera `NaN` al estar vacía y resulta que en JS devuelve `0`. Otra cosa es que `Number("12abc")` da `NaN` en vez de quedarse con los primeros números como hace `parseInt`. Con la coerción de tipos se nota rápido la regla: con el `+` manda el string y concatena si hay texto de por medio, pero en la resta o la multiplicación manda el número y fuerza el cálculo numérico. Por último, ver que `0 == false` da `true` deja clarísimo por qué es mejor comparar siempre con `===` para no liarla con conversiones raras.
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- [MDN Web Docs · typeof](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/typeof)
+- [MDN Web Docs · Coerción de tipos](https://developer.mozilla.org/es/docs/Glossary/Type_coercion)
+- [MDN Web Docs · Plantillas de cadena](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals)
+- [Documentación oficial de Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [PDF tema 3]
+- [Gemini]  
+
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He utilizado Gemini para resolver dudas, repasar la sintaxis de los ejercicios y entender bien el porque del fallo de `typeof null` y el error al intentar reasignar una `const`. Despues de consultar las explicaciones, he escrito y probado todo el codigo en mi consola, rellenado las tablas a mano y comprobado que los resultados salían como deberia ser.
