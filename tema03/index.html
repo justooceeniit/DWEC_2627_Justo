@@ -382,23 +382,65 @@ console.log("nombre =",nombre, "→", typeof nombre);
       </div>
     </section>
       <!--Ejercicio 4-->
+       <section class="card mb-4 shadow-sm">
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 4</span>
+        <h2 class="h5 mb-0">Tu ficha con plantillas de cadena</h2>
+      </div>
+      <div class="card-body">
+        <!-- el codigo de diego y mi codigo de js-->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4(){
+  console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
-      
+  // Tus datos, con const
+  const nombre = "Justo Cenit Ruiz";
+  const ciclo = "Desarrollo de Aplicaciones Web(DAW)";
+  const curso = "2º";
+  const aficion = "Impresion 3D";
 
+  // Un dato que cambia, con let
+  let horasEstudiadas= 10;
+  horasEstudiadas += 5; //cambio el dato sumando 5
 
+  // La ficha con plantilla de cadena: backticks (`) y ${ }
+  const ficha = `Soy ${nombre}, estudio ${ciclo} y estoy en ${curso}. Me gusta ${aficion} y he estudiado ${horasEstudiadas} horas esta semana.`;
+  //Muestra con alert() y en consola
+  alert(ficha);
+  console.log("Ficha con backticks:", ficha);
+  //misma ficha concatenando con +  
+  const fichaConMas = "Soy " + nombre + ", estudio " + ciclo + " y estoy en " + curso + ". Me gusta " + aficion + " y he estudiado " + horasEstudiadas + " horas esta semana.";
+  console.log("Ficha con concatenación:", fichaConMas);
 
-    <!-- ============================================================
-         EJERCICIOS 4 · Los haces tú
-         Copia la card del ejercicio 1 entera (desde <section> hasta </section>), pégala aquí debajo
-         y cambia en cada copia:
-           · el número y el título;
-           · el código del bloque <pre><code>;
-           · las columnas de la tabla:
-               Ejercicio 2 → Conversión / Espero / Sale
-               Ejercicio 3 → Expresión / Espero / Sale, y tu frase sobre cuándo manda la cadena y cuándo el número
-               Ejercicio 4 → tu ficha, y el error de la const dentro de un <div class="alert alert-danger">
-           · el botón: onclick="ejercicio2()", onclick="ejercicio3()"…
-         ============================================================ -->
+  //comparamos las 2 con === 
+  const sonIguales = ficha === fichaConMas;
+  console.log("¿Son iguales las dos fichas?", sonIguales);
+}</code></pre>
+
+  <!--Resultado de la ficha-->
+
+  <p class="mb-3">
+    <strong>Ficha generada:</strong><br>
+    <span class="text-body-secondary fst-italic">Soy Justo Cenit Ruiz, estudio Desarrollo de Aplicaciones Web(DAW) y estoy en 2º. Me gusta la Impresion 3D y he estudiado 15 horas esta semana.</span>
+  </p>
+
+  <div class="alert alert-danger mb-0" role="alert">
+    <h3 class="h6 alert-heading fw-bold mb-1">
+      <i class="bi bi-exclamation-triangle-fill"></i>Error al intentar reasignar una variable const en consola:
+    </h3>
+    <p class="font-monospace small mb-2 text-danger-emphasis bg-light p-2 rounded border border-danger-subtle">
+      Uncaught TypeError: Assignment to constant variable.
+    </p>
+    <p class="small mb-0">Esto ocurre porque las variables declaradas con <code>const</code> no pueden ser reasignadas. Si intentas hacer algo como <code>nombre = "Otro nombre";</code>, saltara este error.</p>
+  </div>
+  </div>
+  <!-- boton -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio4()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 4
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en un alert() y en la consola (F12).</span>
+      </div>
+    </section>
 
   </main>
 

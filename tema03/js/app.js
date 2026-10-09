@@ -61,7 +61,7 @@ function ejercicio2() {
   console.log('Number("12abc") →',c3, typeof c3);
 
   //number ("")
-  const c4= Number(""); //espero 0
+  const c4= Number(""); //espero NaN
   console.log('Number("") → ', c4, typeof c4);
 
   //number (true)
@@ -123,17 +123,15 @@ function ejercicio4() {
   horasEstudiadas += 5; //cambio el dato sumando 5
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
-  const ficha = `Soy ${nombre}, estudio ${ciclo} y estoy en ${curso}. Me gusta ${aficion} y he estudiado ${horasEstudiadas} horas esta semana.`;
+  const ficha = `Soy ${nombre}, estudio ${ciclo} y estoy en ${curso}. Me gusta la ${aficion} y he estudiado ${horasEstudiadas} horas esta semana.`;
   //Muestra con alert() y en consola
   alert(ficha);
   console.log("Ficha con backticks:", ficha);
   //misma ficha concatenando con +  
-  const fichaConMas = "Soy " + nombre + ", estudio " + ciclo + " y estoy en " + curso + ". Me gusta " + aficion + " y he estudiado " + horasEstudiadas + " horas esta semana.";
+  const fichaConMas = "Soy " + nombre + ", estudio " + ciclo + " y estoy en " + curso + ". Me gusta la " + aficion + " y he estudiado " + horasEstudiadas + " horas esta semana.";
   console.log("Ficha con concatenación:", fichaConMas);
 
   //comparamos las 2 con === 
   const sonIguales = ficha === fichaConMas;
   console.log("¿Son iguales las dos fichas?", sonIguales);
-
-  // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }
