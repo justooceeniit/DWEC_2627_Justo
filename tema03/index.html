@@ -154,7 +154,7 @@ console.log("nombre =",nombre, "→", typeof nombre);
         <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
       </div>
     </section>
-
+    <!--Ejercicio 2 : conversion explicita-->
     <section class="card mb-4 shadow-sm">
       <div class="card-header d-flex align-items-center gap-2">
         <span class="badge text-bg-primary">Ejercicio 2</span>
@@ -263,8 +263,44 @@ console.log("nombre =",nombre, "→", typeof nombre);
       </div>
     </section>
 
+    <!--Ejercicio 3 : coercion y comparacion -->
+    <section class="card mb-4 shadow-sm">
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 3</span>
+        <h2 class="h5 mb-0">Coerción y comparaciones</h2>
+      </div>
+      <div class="card-body">
+        <!--3) el codigo de diego y mi codigo de js-->
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3(){
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+
+  // 1) expresion mezclando tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero 3 (la resta lo convierte a num)
+  console.log('"5" + 2 →', "5" + 2);   // espero "52" (la suma concatena strings)
+  console.log('"5" * "2" →', "5" * "2");   // espero 10 (la multiplicación lo convierte a num)
+  console.log('"10" / 2 →', "10" / 2);   // espero 5 (la división lo convierte a num)
+  console.log('"hola" - 2 →', "hola" - 2);   // espero NaN (la resta no puede convertir "hola" a número)
+  console.log('true + 3 →', true + 3);   // espero 4 (la suma convierte true a 1)
+
+
+  //2)comparaciones con == y ==
+  //pareja ejemplo 5 y "5"
+  console.log('5 == "5" →', 5 == "5");     // espero true(coersion de tipos)
+  console.log('5 === "5" →', 5 === "5");   // espero false(tipo distinto)
+  //pareja 0 y false
+  console.log('0 == false →', 0 == false); // espero true(false convierte a 0)
+  console.log('0 === false →', 0 === false); // espero false(tipo distinto)
+  //pareja null y undefined
+  console.log('null == undefined →', null == undefined); // espero true(igualdad especial)
+  console.log('null === undefined →', null === undefined); // espero false(tipos distintos)
+}</code></pre>
+    <section
+
+
+
     <!-- ============================================================
-         EJERCICIOS 3 Y 4 · Los haces tú
+         EJERCICIOS 4 · Los haces tú
          Copia la card del ejercicio 1 entera (desde <section> hasta </section>), pégala aquí debajo
          y cambia en cada copia:
            · el número y el título;
