@@ -67,6 +67,18 @@ function ejercicio2() {
   //number (true)
   const c5= Number(true); // espero 1 ya que si es false es 0, si es true es 1
   console.log('Number(true) →',c5, typeof c5);
+
+  //boolean (0)
+  const c6 =Boolean(0); //espero false
+  console.log('Boolean(0) →', c6, typeof c6);
+
+  //boolean("texto")
+  const c7 = Boolean("texto"); //espero true
+  console.log('Boolean("texto") →',c7, typeof c7);
+  
+  //boolean ("")
+  const c8= Boolean(""); //espero falso
+  console.log('Boolean("") →',c8, typeof c8);
 }
 
 
