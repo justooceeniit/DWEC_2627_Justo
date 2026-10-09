@@ -46,8 +46,8 @@ Al hacer las pruebas de las tablas, lo que me pareció más normal y lógico fue
 - [MDN Web Docs · Coerción de tipos](https://developer.mozilla.org/es/docs/Glossary/Type_coercion)
 - [MDN Web Docs · Plantillas de cadena](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals)
 - [Documentación oficial de Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-- [PDF tema 3]
-- [Gemini]  
+- PDF tema 3
+- Gemini  
 
 
 ## Uso de IA
