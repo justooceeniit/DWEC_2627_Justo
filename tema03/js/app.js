@@ -113,18 +113,27 @@ function ejercicio4() {
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
   // Tus datos, con const
-  const nombre = "[Tu nombre]";
-  // TODO: ciclo, curso y una afición, también con const.
+  const nombre = "Justo Cenit Ruiz";
+  const ciclo = "Desarrollo de Aplicaciones Web(DAW)";
+  const curso = "2º";
+  const aficion = "Impresion 3D";
 
   // Un dato que cambia, con let
-  // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
+  let horasEstudiadas= 10;
+  horasEstudiadas += 5; //cambio el dato sumando 5
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
-  const ficha = `Soy ${nombre}.`;
-  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
+  const ficha = `Soy ${nombre}, estudio ${ciclo} y estoy en ${curso}. Me gusta ${aficion} y he estudiado ${horasEstudiadas} horas esta semana.`;
+  //Muestra con alert() y en consola
+  alert(ficha);
+  console.log("Ficha con backticks:", ficha);
+  //misma ficha concatenando con +  
+  const fichaConMas = "Soy " + nombre + ", estudio " + ciclo + " y estoy en " + curso + ". Me gusta " + aficion + " y he estudiado " + horasEstudiadas + " horas esta semana.";
+  console.log("Ficha con concatenación:", fichaConMas);
 
-  // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
-  // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
+  //comparamos las 2 con === 
+  const sonIguales = ficha === fichaConMas;
+  console.log("¿Son iguales las dos fichas?", sonIguales);
 
   // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }
