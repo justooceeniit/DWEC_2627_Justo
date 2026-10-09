@@ -39,10 +39,7 @@ console.log("nombre =",nombre, "→", typeof nombre);
   variableLet= 50;
   console.log("variableLet (nueva)=", variableLet, "→", typeof variableLet);
 
-  // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
-  //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
-  // TODO: muestra en la consola el valor y el typeof de cada una, como en el ejemplo.
-  // TODO: da valor a tu variable let y vuelve a mostrar su typeof.
+
 }
 
 

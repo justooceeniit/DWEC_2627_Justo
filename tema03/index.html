@@ -60,12 +60,28 @@
         <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
                 Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
-  console.log("--- Ejercicio 1 · Variables y typeof ---");
-
   const edad = 20;   // number
   console.log("edad =", edad, "→", typeof edad);
 
-  [aquí va el resto de tu código]
+  const nombre = "Justo"; //String
+console.log("nombre =",nombre, "→", typeof nombre);
+
+  const falso= false; //boolean
+  console.log("falso =",falso ,"→", typeof falso );
+
+  const nulo= null; //null
+  console.log("nulo =" , nulo ,"→", typeof nulo);
+
+  let variableLet; //undefined
+  console.log("variableLet =", variableLet, "→", typeof variableLet);
+
+  const numeroGrande= 10n; //bigint
+  console.log("numeroGrande =", numeroGrande, "→", typeof numeroGrande);
+
+  //dar valor a let y volver a mostrar tipo
+  variableLet= 50;
+  console.log("variableLet (nueva)=", variableLet, "→", typeof variableLet);
+
 }</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.
@@ -118,7 +134,7 @@
 
   <footer class="bg-body-tertiary border-top py-3">
     <div class="container small text-body-secondary">
-      [Tu nombre y apellidos] · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
+      [Justo Cenit Ruiz] · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
     </div>
   </footer>
 
