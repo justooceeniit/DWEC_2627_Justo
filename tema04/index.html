@@ -79,22 +79,33 @@
             <div id="salida">
               <div class="text-secondary small fst-italic">Pulsa cualquier boton , el resultado lo ves aqui</div>
             </div>
-
           </div>
         </section>
       </div>
     </div>
 
-    <!-- EJERCICIO 1 · Calculadora -->
-    <section class="card mb-4">
-      <div class="card-header">Calculadora</div>
-      <div class="card-body">
-        <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
-        <button type="button" class="btn btn-primary" onclick="sumar()">Sumar</button>
-        <!-- TODO: los botones Restar, Multiplicar, Dividir, Potencia y Módulo:
-                   restar(), multiplicar(), dividir(), potencia() y modulo() -->
+
+    <!--Las 3 tarjetas del ejercicio-->
+    <div class="row g-4">
+      <!--Ejercicio 1 . calculadora-->
+      <div class="col-12 col-md-6 col-lg-4">
+        <section class="card shadow-sm h-100">
+          <div class="card-header bg-white fw-bold">
+            <span class="badge text-bg-primary me-2">1</span>Calculadora
+          </div>
+          <div class="card-body">
+            <div class="row g-2">
+              <div class="col-6">
+                <button type="button" class="btn btn-primary w-100" onclick="sumar()">
+                  <i class="bi bi-plus-lg me-1"></i>Sumar
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
+
 
     <!-- TODO EJERCICIO 2 · Comparaciones: una card con los botones
                «¿Cuál es mayor?» → cualEsMayor()     «¿Par o impar?» → parOImpar() -->
