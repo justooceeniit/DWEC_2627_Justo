@@ -171,7 +171,14 @@ function bucleFor() {
     console.warn("bucleFor: numero no valido");
     return;
   }
-  
+
+  let contador= 0;
+  for (let i = 1; i <= veces; i++){
+    anadirLinea(`Total: ${contador} ${sufijo}`);
+    console.log(`bucleFor completado: ${contador} vueltas`);
+  }
+
+
 
   // TODO: si el número falta, tiene decimales o pasa de MAXIMO_REPETICIONES, muestra un error en rojo.
   // TODO: si no, repite con un for tantas veces como diga «veces». En cada vuelta:
@@ -181,6 +188,25 @@ function bucleFor() {
 }
 
 function bucleWhile() {
+  const veces= leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES ){
+    mostrar(`introduce un numero entero menor o igual a ${MAXIMO_REPETICIONES}`, "danger");
+    console.warn("bucleWhile: numero no valido");
+    return;
+  }
+
+  let contador = 0;
+  let i = 1;
+  while (i<= veces){
+    anadirLinea(`while repeticion ${i} de ${veces}`);
+    contador++;
+    i++;
+  }
+  const sufijo = (contador === 1) ? "repeticion" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${sufijo}`);
+  console.log(`bucleWhile completado: ${contador} vueltas`);
   // TODO: lo mismo que bucleFor(), con un while.
 }
 
