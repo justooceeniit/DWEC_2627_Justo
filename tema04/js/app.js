@@ -119,7 +119,19 @@ function modulo() {
 // ============================================================
 
 function cualEsMayor() {
-  // TODO: con if, else if y else, di cuál de los dos números es mayor o si son iguales.
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)){
+    mostrar("Escribe los dos numeros antes de comparar" , "danger");
+    console.warn("Cual es mayor?: falta algun numero");
+  }else if(n1> n2){
+    mostrar(`El numero ${n1} es mayor que ${n2}`);
+    console.log(`Cual es mayor?: ${n1} > ${n2}`);
+  }else if (n2 > n1){
+    mostrar(`El numero ${n2} es mayor que ${n1}`);
+    console.log(`Cual es mayor? : ${n1} === ${n2}`);
+  }
 }
 
 function parOImpar() {
