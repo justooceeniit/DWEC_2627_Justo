@@ -39,7 +39,7 @@ function restar() {
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
-  if (Numner.isNaN(n1) || Number.isNaN(n2)){
+  if (Number.isNaN(n1) || Number.isNaN(n2)){
     mostrar("Escribe los dos numeros antes de operar", "danger");
     console.warn("Restar: falta algun numero");
   } else{
@@ -64,8 +64,20 @@ function multiplicar() {
 }
 
 function dividir() {
-  // TODO: como sumar(), con el operador /
-  // TODO: si el número 2 es 0, muestra un error en rojo. Ojo: en JavaScript, 5 / 0 no da error, da Infinity.
+  const n1= leerNumero("numero1");
+  const n2= leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)){
+    mostrar("Escribe los dos numeros antes de operar", "danger");
+    console.warn("Dividir: falta algun numero");
+  }else if (n2 ===0){
+    mostrar("No se puede dividir entre 0" , "danger");
+    console.warn("Dividir: division por 0 invalida");
+  }else{
+    const resultado= n1 / n2;
+    mostrar(`${n1} / ${n2} = ${resultado}`);
+    console.log(`dividir: ${n1} / ${n2} = ${resultado}`);
+  }
 }
 
 function potencia() {
