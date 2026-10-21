@@ -211,6 +211,26 @@ function bucleWhile() {
 }
 
 function bucleDoWhile() {
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES){
+    mostrar(`Introduce un numero entero menor o igual a ${MAXIMO_REPETICIONES}` , "danger");
+    console.warn("bucleDoWhile: numero no valido");
+    return;
+  }
+  let = contador= 0;
+  let i = 1;
+  //do while ejecuta el bloque minimo una vez antes de comprobar condiciones
+  do{
+    anadirLinea(`do..while .  repeticion ${i} de ${veces}`);
+    contador++;
+    i++;
+  }while (i <= veces);
+
+  const sufijo = (contador === 1) ? "repeticion" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${sufijo}`);
+  console.log(`bucleDoWhile completado : ${contador} vueltas`);
   // TODO: lo mismo que bucleFor(), con un do…while. Pruébalo con 0 y con un negativo: ¿qué pasa?
 }
 
