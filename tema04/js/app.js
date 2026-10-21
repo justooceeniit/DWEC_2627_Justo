@@ -109,8 +109,6 @@ function modulo() {
     mostrar(`${n1} % ${n2} = ${resultado}`);
     console.log(`modulo: ${n1} % ${n2} = ${resultado}`);
   }
-  // TODO: el resto de la división, con el operador %
-  // TODO: si el número 2 es 0, muestra un error en rojo (5 % 0 da NaN).
 }
 
 
@@ -152,8 +150,7 @@ function parOImpar() {
     mostrar(`El numero ${n1} es ${tipo}`);
     console.log(`Par o impar?: ${n1} es ${tipo}`);
   }
-  // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
-  // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
+
 }
 
 
@@ -172,19 +169,18 @@ function bucleFor() {
     return;
   }
 
-  let contador= 0;
-  for (let i = 1; i <= veces; i++){
-    anadirLinea(`Total: ${contador} ${sufijo}`);
-    console.log(`bucleFor completado: ${contador} vueltas`);
+  let contador = 0;
+  for (let i = 1; i <= veces; i++) {
+    anadirLinea(`for · repetición ${i} de ${veces}`);
+    contador++;
   }
 
+  const sufijo = (contador === 1) ? "repetición" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${sufijo}`);
+  console.log(`bucleFor completado: ${contador} vueltas`);
 
 
-  // TODO: si el número falta, tiene decimales o pasa de MAXIMO_REPETICIONES, muestra un error en rojo.
-  // TODO: si no, repite con un for tantas veces como diga «veces». En cada vuelta:
-  //         anadirLinea(`for · repetición ${i} de ${veces}`);
-  //       y cuenta las vueltas en una variable contador.
-  // TODO: al terminar, añade una línea con el total: «Total: 5 repeticiones» o «Total: 1 repetición».
+
 }
 
 function bucleWhile() {
@@ -207,7 +203,6 @@ function bucleWhile() {
   const sufijo = (contador === 1) ? "repeticion" : "repeticiones";
   anadirLinea(`Total: ${contador} ${sufijo}`);
   console.log(`bucleWhile completado: ${contador} vueltas`);
-  // TODO: lo mismo que bucleFor(), con un while.
 }
 
 function bucleDoWhile() {
@@ -219,7 +214,7 @@ function bucleDoWhile() {
     console.warn("bucleDoWhile: numero no valido");
     return;
   }
-  let = contador= 0;
+  let contador = 0;
   let i = 1;
   //do while ejecuta el bloque minimo una vez antes de comprobar condiciones
   do{
@@ -231,7 +226,7 @@ function bucleDoWhile() {
   const sufijo = (contador === 1) ? "repeticion" : "repeticiones";
   anadirLinea(`Total: ${contador} ${sufijo}`);
   console.log(`bucleDoWhile completado : ${contador} vueltas`);
-  // TODO: lo mismo que bucleFor(), con un do…while. Pruébalo con 0 y con un negativo: ¿qué pasa?
+  
 }
 
 
@@ -240,15 +235,74 @@ function bucleDoWhile() {
 // ============================================================
 
 function badgesFor() {
-  // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
-  //         anadirBadge(i, "primary");
-  // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Introduce un número entero menor o igual a ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn("badgesFor: número no valido");
+    return;
+  }
+
+
+  let contador = 0;
+  for (let i = 1; i <= veces; i++) {
+    const color = (i % 2 === 0) ? "primary" : "dark";
+    anadirBadge(i, color);
+    contador++;
+  }
+
+  const sufijo = (contador === 1) ? "repetición" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${sufijo}`);
+  console.log(`badgesFor completado: ${contador} badges`);
 }
 
+
+
 function badgesWhile() {
-  // TODO: lo mismo que badgesFor(), con un while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Introduce un numero entero menor o igual a ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn("badgesWhile: número no válido");
+    return;
+  }
+
+  let contador = 0;
+  let i = 1;
+  while (i <= veces) {
+    const color = (i % 2 === 0) ? "primary" : "success";
+    anadirBadge(i, color);
+    contador++;
+    i++;
+  }
+
+  const sufijo = (contador === 1) ? "repetición" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${sufijo}`);
+  console.log(`badgesWhile completado: ${contador} badges`);
 }
 
 function badgesDoWhile() {
-  // TODO: lo mismo que badgesFor(), con un do…while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar(`Introduce un número entero menor o igual a ${MAXIMO_REPETICIONES}.`, "danger");
+    console.warn("badgesDoWhile: número no válido");
+    return;
+  }
+
+  let contador = 0;
+  let i = 1;
+  do {
+    const color = (i % 2 === 0) ? "dark" : "primary";
+    anadirBadge(i, color);
+    contador++;
+    i++;
+  } while (i <= veces);
+
+  const sufijo = (contador === 1) ? "repetición" : "repeticiones";
+  anadirLinea(`Total: ${contador} ${sufijo}`);
+  console.log(`badgesDoWhile completado: ${contador} badges`);
 }
