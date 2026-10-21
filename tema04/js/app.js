@@ -1,5 +1,5 @@
 /*
-  Tarea 4 · DWEC · [Tu nombre y apellidos]
+  Tarea 4 · DWEC · Justo Cenit Ruiz
   Calculadora y bucles.
 
   Cómo usar esta plantilla:
@@ -36,11 +36,31 @@ function sumar() {
 }
 
 function restar() {
-  // TODO: como sumar(), con el operador -
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Numner.isNaN(n1) || Number.isNaN(n2)){
+    mostrar("Escribe los dos numeros antes de operar", "danger");
+    console.warn("Restar: falta algun numero");
+  } else{
+    const resultado = n1- n2;
+    mostrar(`${n1} - ${n2} = ${resultado}`);
+    console.log(`Restar: ${n1} - ${n2} = ${resultado}`);
+  }
 }
 
 function multiplicar() {
-  // TODO: como sumar(), con el operador *
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if(Number.isNaN(n1) || Number.isNaN(n2)){
+    mostrar("Escribe los dos numeros antes de operar" , "danger");
+    console.warn("Multiplicar: falta algun numero");
+  }else{
+    const resultado = n1 * n2;
+    mostrar(`${n1} * ${n2} = ${resultado}`);
+    console.log(`Multiplicar: ${n1} * ${n2} = ${resultado}`);
+  }
 }
 
 function dividir() {
