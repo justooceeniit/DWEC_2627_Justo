@@ -131,10 +131,27 @@ function cualEsMayor() {
   }else if (n2 > n1){
     mostrar(`El numero ${n2} es mayor que ${n1}`);
     console.log(`Cual es mayor? : ${n1} === ${n2}`);
+  }else{
+    mostrar(`Ambos numeros son iguales (${n1} === ${n2})`);
+    console.log(`cual es mayor?: ${n1} === ${n2}`)
   }
 }
 
 function parOImpar() {
+  const n1= leerNumero("numero1");
+
+  if (Number.isNaN(n1)){
+    mostrar("Escribe el numero 1 para comprobar si es par o impar" , "danger");
+    console.warn(`par o impar?: falta el numero 1`);
+  }else if (!Number.isInteger(n1)){
+    mostrar(`El numero ${n1} tiene decimales: no es par ni impar` , `warning`);
+    console.log(`Par o impar?: ${n1} tiene decimales`);
+  }else{
+    //seleccion con operador ternario
+    const tipo = (n1 % 2 === 0) ? "par" : "impar";
+    mostrar(`El numero ${n1} es ${tipo}`);
+    console.log(`Par o impar?: ${n1} es ${tipo}`);
+  }
   // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
   // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
 }
