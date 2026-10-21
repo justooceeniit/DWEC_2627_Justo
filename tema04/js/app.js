@@ -166,6 +166,13 @@ function bucleFor() {
   const veces = leerNumero("numero1");
   limpiarSalida();
 
+  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES){
+    mostrar(`introduce un numero entero menor o igual a ${MAXIMO_REPETICIONES}`, "danger");
+    console.warn("bucleFor: numero no valido");
+    return;
+  }
+  
+
   // TODO: si el número falta, tiene decimales o pasa de MAXIMO_REPETICIONES, muestra un error en rojo.
   // TODO: si no, repite con un for tantas veces como diga «veces». En cada vuelta:
   //         anadirLinea(`for · repetición ${i} de ${veces}`);
