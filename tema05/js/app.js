@@ -59,9 +59,17 @@ function anadirParrafo() {
 }
 
 function eliminarUltimo() {
-  // TODO: busca el último párrafo de #contenido (lastElementChild).
-  // TODO: si es null (ya no queda ninguno), muestra el aviso #aviso2 quitándole la clase "d-none".
-  //       Si no, bórralo con remove().
+  const contenedor = document.querySelector("#contenido");
+  const ultimoParrafo = contenedor.lastElementChild;
+  const aviso = document.querySelector("#aviso2");
+
+  if (ultimoParrafo === null){
+    aviso.classList.remove("d-none");
+    console.warn("Ejercicio 2: No quedan parrafos por eliminar");
+  }else{
+    ultimoParrafo.remove();
+    console.log("Ejercicio 2: Ultimo parrafo eliminado");
+  }
 }
 
 
@@ -73,16 +81,16 @@ function activarResaltado() {
   const parrafos = document.querySelectorAll("#contenido p");
 
   for (const parrafo of parrafos) {
-    // addEventListener("mouseenter", ...) ejecuta la función cuando el ratón entra en el párrafo.
-    // Los eventos los veremos a fondo en el tema 9: de momento, copia este modelo.
     parrafo.addEventListener("mouseenter", function () {
       parrafo.classList.add("bg-body-secondary");
     });
 
-    // TODO: lo mismo con "mouseleave" (cuando el ratón sale) para quitar la clase.
+    parrafo.addEventListener("mouseleave", function (){
+      parrafo.classList.remove("bg-body-secondary");
+    });
   }
 
-  // TODO: un console.log() que diga en cuántos párrafos se ha activado (parrafos.length).
+  console.log(`Ejercicio 3: Resaltado activado en ${parrafos.length} parrafos`);
 }
 
 
@@ -91,9 +99,7 @@ function activarResaltado() {
 // ============================================================
 
 function cambiarTexto() {
-  // TODO: lee lo escrito en #nuevoTexto con value y quítale los espacios de los extremos con trim().
-  // TODO: si está vacío, muestra el error #error4 (quítale "d-none") y no cambies nada.
-  // TODO: si no, pon ese texto en el primer párrafo de #contenido con textContent y oculta el error.
+  
 }
 
 function cambiarConHtml() {
