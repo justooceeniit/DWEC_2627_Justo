@@ -52,7 +52,7 @@ function anadirParrafo() {
   contenedor.append(nuevoParrafo);
 
   //si el aviso de q no quedaban parrafos es visible se oculta
-  const aviso = DocumentTimeline.querySelector("#aviso2");
+  const aviso = document.querySelector("#aviso2");
   aviso.classList.add("d-none");
 
   console.log(`Ejercicio 2: Añadido "Parrafo nuevo ${numeroNuevo}" al contenedor`);
@@ -99,12 +99,39 @@ function activarResaltado() {
 // ============================================================
 
 function cambiarTexto() {
-  
+  const input = document.querySelector("#nuevoTexto");
+  const texto = input.value.trim();
+  const error = document.querySelector("#error4");
+  const primerParrafo = document.querySelector("#contenido p");
+
+  if (texto === ""){
+    error.classList.remove("d-none");
+    console.warn("Ejercicio 4 (textContent): El campo esta vacio");
+  }else{
+    error.classList.add("d-none");
+    if (primerParrafo !== null){
+      primerParrafo.textContent = texto;
+    }
+    console.log(`Ejercicio 4: Primer parrafo actualizado con textContent -> "${texto}"`);
+  }
 }
 
 function cambiarConHtml() {
-  // TODO: lo mismo que cambiarTexto(), pero con innerHTML.
-  //       Prueba las dos con <b>hola</b> y explica en el README qué diferencia ves y por qué es peligroso.
+  const input = document.querySelector("#nuevoTexto");
+  const texto = input.value.trim();
+  const error = document.querySelector("#error4");
+  const primerParrafo = document.querySelector("#contenido p");
+
+  if (texto === ""){
+    error.classList.remove("d-none");
+    console.warn("Ejercicio 4 (innerHTML): El campo esta vacio");
+  }else{
+    error.classList.add("d-none");
+    if (primerParrafo !== null){
+      primerParrafo.innerHTML = texto;
+    }
+    console.log(`Ejercicio 4: Primer parrafo actualizado con innerHTML -> "${texto}"`);
+  }
 }
 
 
