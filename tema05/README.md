@@ -22,7 +22,7 @@ Muestra el resultado tras pulsar «Aplicar cambios» (el primer párrafo cambia 
 
 ![Un párrafo resaltado con el ratón encima](capturas/c-ej3-resaltado.png)
 
-Al poner el ratón encima de un párrafo se activa la clase `bg-body-secondary` con el evento `mouseenter`, y al sacarlo se quita con `mouseleave`[cite: 3, 17]. Si añades párrafos nuevos no se resaltan porque cuando pulsas el botón, `querySelectorAll` solo le pone los eventos a los que ya estaban creados en ese momento.
+Al poner el ratón encima de un párrafo se activa la clase `bg-body-secondary` con el evento `mouseenter`, y al sacarlo se quita con `mouseleave`. Si añades párrafos nuevos no se resaltan porque cuando pulsas el botón, `querySelectorAll` solo le pone los eventos a los que ya estaban creados en ese momento.
 
 ### d) Ejercicio 4: `<b>hola</b>` con innerHTML
 
@@ -48,7 +48,7 @@ La diferencia entre `textContent` e `innerHTML` es que `textContent` mete todo c
 
 ## Fuentes
 
-- [MDN Web Docs: Document Object Model (DOM)](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model)[cite: 17]
+- [MDN Web Docs: Document Object Model (DOM)](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model)
 - [MDN Web Docs: Element.classList](https://developer.mozilla.org/es/docs/Web/API/Element/classList)
 - [MDN Web Docs: Node.textContent](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
 - [Bootstrap 5 Breakpoints Documentation](https://getbootstrap.com/docs/5.3/layout/breakpoints/)
