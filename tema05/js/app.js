@@ -140,12 +140,41 @@ function cambiarConHtml() {
 // ============================================================
 
 function anadirTarea() {
-  // TODO: lee el texto de #tareaInput (value + trim). Si está vacío, muestra un mensaje en #error5.
-  // TODO: si no, crea un <li class="list-group-item"> con dos elementos dentro:
-  //         · un <input> de tipo "checkbox" con la clase "form-check-input",
-  //         · un <span> con el texto de la tarea (textContent).
-  //       Cuelga el <li> de #listaTareas y vacía la casilla (value = "").
-  // TODO: actualiza #totalTareas con el número de <li> que hay en la lista.
+  const input = document.querySelector("#tareaInput");
+  const texto = input.value.trim();
+  const error = document.querySelector("#error5");
+  const lista = document.querySelector("listaTareas");
+  const total = document.querySelector("#totalTareas");
+
+  if (texto === ""){
+    error.textContent = "Escribe una tarea antes de añadirla";
+    error.classList.remove("d-none");
+    console.warn("Ejercicio 5: intento de añadir tarea vacia");
+    return;
+    }
+
+    //ocultar mensaje de error previo si lo hay
+    error.classList.add("d-none");
+
+    //crear elementos del li
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("form-check-input", "me-2");
+
+    const span = document.createElement("span");
+    span.textContent = texto;
+
+    li.append(checkbox, span);
+    lista.append(li);
+
+    //vaciar la casilla y actualiza contador
+    input.value = "";
+    total.textContent = lista.children.length;
+
+    console.log(`Ejercicio 5: tarea añadida -> "${texto}". Total tareas: ${lista.children.length}`);
 }
 
 function borrarCompletadas() {
