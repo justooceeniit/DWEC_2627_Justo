@@ -143,7 +143,7 @@ function anadirTarea() {
   const input = document.querySelector("#tareaInput");
   const texto = input.value.trim();
   const error = document.querySelector("#error5");
-  const lista = document.querySelector("listaTareas");
+  const lista = document.querySelector("#listaTareas");
   const total = document.querySelector("#totalTareas");
 
   if (texto === ""){
