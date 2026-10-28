@@ -208,8 +208,29 @@ function verDatosVentana() {
   const alto = window.innerHeight;
   document.querySelector("#datoVentana").textContent = `${ancho} × ${alto} px`;
 
-  // TODO: con if / else if, el punto de corte de Bootstrap según el ancho: xs (< 576), sm (≥ 576), md (≥ 768),
-  //       lg (≥ 992), xl (≥ 1200) y xxl (≥ 1400). Escríbelo en #datoPunto.
-  // TODO: el tamaño de la pantalla (screen.width y screen.height) en #datoPantalla.
-  // TODO: la URL (location.href) en #datoUrl y el idioma del navegador (navigator.language) en #datoIdioma.
+  //punto de corte de bootstrap segun ancho ventana
+  let puntoCorte = "";
+  if (ancho < 576) {
+    puntoCorte = "xs (< 576 px)";
+  } else if (ancho < 768) {
+    puntoCorte = "sm (de 576 a 767 px)";
+  } else if (ancho < 992) {
+    puntoCorte = "md (de 768 a 991 px)";
+  } else if (ancho < 1200) {
+    puntoCorte = "lg (de 992 a 1199 px)";
+  } else if (ancho < 1400) {
+    puntoCorte = "xl (de 1200 a 1399 px)";
+  } else {
+    puntoCorte = "xxl (>= 1400 px)";
+  }
+  document.querySelector("#datoPunto").textContent = puntoCorte;
+
+  //tamaño de la pantalla del dispositivo
+  document.querySelector("#datoPantalla").textContent = `${screen.width} x ${screen.height} px`;
+
+  //URL de la pagina actual e idioma del navegador
+  document.querySelector("#datoUrl").textContent = location.href;
+  document.querySelector("#datoIdioma").textContent = navigator.language;
+
+  console.log(`Ejercicio 6: Datos BOM obtenidos -> Ventana: ${ancho}x${alto} (${puntoCorte}), Pantalla: ${screen.width}x${screen.height}, Idioma: ${navigator.language}`);
 }
