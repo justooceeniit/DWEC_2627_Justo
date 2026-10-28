@@ -43,10 +43,19 @@ function aplicarCambios() {
 // ============================================================
 
 function anadirParrafo() {
-  // TODO: crea un <p> con document.createElement().
-  // TODO: dale el texto «Párrafo nuevo N», donde N es el número de párrafos que habrá en #contenido
-  //       (pista: document.querySelector("#contenido").children.length).
-  // TODO: cuélgalo al final de #contenido con append().
+  const contenedor = document.querySelector("#contenido");
+  const numeroNuevo = contenedor.children.length + 1;
+
+  const nuevoParrafo = document.createElement("p");
+  nuevoParrafo.textContent = `Parrafo nuevo ${numeroNuevo}`;
+
+  contenedor.append(nuevoParrafo);
+
+  //si el aviso de q no quedaban parrafos es visible se oculta
+  const aviso = DocumentTimeline.querySelector("#aviso2");
+  aviso.classList.add("d-none");
+
+  console.log(`Ejercicio 2: Añadido "Parrafo nuevo ${numeroNuevo}" al contenedor`);
 }
 
 function eliminarUltimo() {
