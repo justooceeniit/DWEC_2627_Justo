@@ -76,7 +76,7 @@ function cumplirAnios() {
 function quitarCurso() {
   delete estudiante.curso;
   verFicha();
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+  //Fíjate en lo que sale ahora en el curso y explícalo en el README.
 }
 
 
@@ -124,12 +124,25 @@ function anadirColor() {
 }
 
 function quitarUltimo() {
-  // TODO: si la lista está vacía, avisa con avisar2() y no hagas nada más.
-  // TODO: si no, saca el último con pop(), vuelve a pintar la lista y di en la consola qué color ha salido.
+  if (colores.length === 0){
+    avisar2("La lista de colores ya esta vacia");
+    return;
+  }
+  const colorSacado = colores.pop();
+  document.querySelector("#aviso2").classList.add("d-none"); //oculta aviso si lo hay
+  mostrarColores();
+  console.log("Ejercicio 2 (Quitar ultimo). Ha salido el color " + colorSacado);
 }
 
 function quitarPrimero() {
-  // TODO: lo mismo que quitarUltimo(), pero sacando el primero con shift().
+  if (colores.length === 0){
+    avisar2("La lista de colores ya esta vacia");
+    return;
+  }
+  const colorSacado = colores.shift();
+  document.querySelector("#aviso2").classList.add("d-none");
+  mostrarColores();
+  console.log("Ejercicio 2 (quitar primero): ha salido el color " + colorSacado);
 }
 
 mostrarColores();   // pinta los tres colores de partida nada más cargar
