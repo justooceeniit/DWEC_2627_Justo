@@ -336,21 +336,49 @@ mostrarNotas();
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
+  const dobles = numeros.map(function(numero){
+    return numero * 2;
+  });
+  
+  const salida = document.querySelector("#salida5");
+  salida.innerHTML = "Dobles (map): " + comoTexto(dobles) + "<br>Original: " +comoTexto(numeros);
+  console.log("Ejercicio 5: verDobles :", dobles);
 }
 
 function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
+  const pares = numeros.filter(function(numero){
+    return numero % 2 === 0;
+  });
+
+  const salida = document.querySelector("#salida5");
+  salida.innerHTML = "pares (filter): " + comoTexto(pares) +"<br>Original: " +comoTexto(numeros);
+  console.log("Ejercicio 5: verPares :", pares);
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+  const suma = numeros.reduce(function(acumulador, numero){
+    return acumulador + numero;
+  }, 0);
+
+  const salida = document.querySelector("#salida5");
+  salida.innerHTML = "Suma (reduce): " + suma + "<br>Original: " +comoTexto(numeros);
+  console.log("Ejercicio 5: verSuma : ", suma);
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  const resultadoEncadenado = numeros.filter(function(numero){
+    return numero % 2 === 0;
+  })
+  .map(function(numero){
+    return numero * 2;
+  })
+  .reduce(function(acumulador, numero){
+    return acumulador + numero;
+  }, 0);
+
+  const salida = document.querySelector("#salida5");
+  salida.innerHTML = "1. filter: [2, 4, 6, 8, 10]<br>2. map: [4, 8, 12, 16, 20]<br>3. reduce:<br>" + resultadoEncadenado;
+  console.log("Ejercicio 5: verCadena :", resultadoEncadenado);
 }
 
 
