@@ -37,7 +37,7 @@ const estudiante = {
   edad: 20,
   curso : "2º DAW",
   presentarse: function(){
-    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + "años y estudio " + this.curso;
+    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + " años y estudio " + this.curso;
 
   }
 
@@ -51,20 +51,31 @@ function verFicha() {
   const ul = document.createElement("ul");
   ul.classList.add("list-group");
 
-  // TODO: vacía #salida1 (textContent = "").
-  // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
-  //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
-  //       y lee cada valor con corchetes: estudiante[clave].
-  // TODO: debajo, un <p> con la frase de estudiante.presentarse().
-  // TODO: console.log() del objeto entero.
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+
+  claves.forEach(function (clave) {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.textContent = clave + ": " + estudiante[clave];
+    ul.append(li);
+  });
+
+  const p = document.createElement("p");
+  p.textContent = estudiante.presentarse();
+
+  salida.append(ul, p);
+
+  console.log(estudiante);
 }
 
 function cumplirAnios() {
-  // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad += 1;
+  verFicha();
 }
 
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
+  delete estudiante.curso;
+  verFicha();
   //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
 }
 
