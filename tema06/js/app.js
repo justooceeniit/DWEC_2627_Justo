@@ -1,5 +1,5 @@
 /*
-  Tarea 6 · DWEC · [Tu nombre y apellidos]
+  Tarea 6 · DWEC · Justo Cenit Ruiz
   Objetos y arrays.
 
   Cómo usar esta plantilla:
@@ -31,14 +31,26 @@ function comoTexto(lista) {
 // Ejercicio 1 · Ficha de estudiante
 // ============================================================
 
-// TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
-// TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-//       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
+  nombre : "Justo",
+  apellidos : "Cenit Ruiz",
+  edad: 20,
+  curso : "2º DAW",
+  presentarse: function(){
+    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + "años y estudio " + this.curso;
+
+  }
 
 };
 
 function verFicha() {
+
+  const salida = document.querySelector("#salida1");
+  salida.textContent = "";
+
+  const ul = document.createElement("ul");
+  ul.classList.add("list-group");
+
   // TODO: vacía #salida1 (textContent = "").
   // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
   //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
