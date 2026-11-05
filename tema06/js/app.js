@@ -402,21 +402,55 @@ function mostrarCiudades() {
 }
 
 function verSlice() {
-  // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
+  const ciudadesExtraidas = ciudades.slice(2, 5);
+  const salida = document.querySelector("#salida6");
+
+  salida.textContent = "slice (2, 5) devuelve" + comoTexto(ciudadesExtraidas) + ". ciudades sigue teniendo " + ciudades.length + " ciudades. No ha cambiado";
+
+  console.log("Ejercicio 6: slice : ", ciudadesExtraidas);
 }
 
 function hacerSplice() {
-  // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
-  // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
+  if (ciudades.length < 3){
+    const salida = document.querySelector("#salida6");
+    salida.textContent = "Quedan pocas ciudades. Pulsa 'Restaurar' antes de volver a hacer splice";
+    return;
+  }
+
+  const ciudadesQuitadas = ciudades.splice(2, 2);
+  const salida = document.querySelector("#salida6");
+
+  salida.textContent = "splice (2, 2) devuelve " + comoTexto(ciudadesQuitadas) + ". Ahora ciudades tiene " + ciudades.length + " ciudades. Ha cambiado";
+
+  mostrarCiudades();
+  console.log("Ejercicio 6: splice : ", ciudadesQuitadas);
 }
 
 function restaurarCiudades() {
-  // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
+  ciudades = [...ciudadesOriginal];
+  mostrarCiudades();
+
+  const salida = document.querySelector("#salida6");
+  salida.textContent = "Ciudades restauradas en su estado original";
+  console.log("Ejercicio 6: restauradas :", ciudades);
 }
 
 function buscarCiudad() {
-  // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
-  // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
+  const inputBuscar = document.querySelector("#buscarCiudad");
+  const ciudadBuscada = inputBuscar.value.trim();
+  const salida = document.querySelector("#salida6");
+
+  if (ciudadBuscada === ""){
+    salida.textContent = "Escribe el nombre exacto de una ciudad";
+    return;
+  }
+  
+  const estaIncluida = ciudades.includes(ciudadBuscada);
+  const posicion = ciudades.indexOf(ciudadBuscada);
+
+  salida.textContent = "includes('" + ciudadBuscada + "') da " + estaIncluida + " | indexOf('" + ciudadBuscada + "') da " + posicion;
+
+  console.log("Ejercicio 6: Búsqueda ->", ciudadBuscada, "| includes:", estaIncluida, "| indexOf:", posicion);
 }
 
 mostrarCiudades();
