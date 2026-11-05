@@ -390,8 +390,15 @@ const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", 
 let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
 
 function mostrarCiudades() {
-  // TODO: vacía #ciudades y pon un badge por ciudad con su posición: «0 · Granada», «1 · Sevilla»...
-  //       Pista: forEach le pasa a tu función dos datos: function (ciudad, posicion) { ... }.
+  const contenedorCiudades = document.querySelector("#ciudades");
+  contenedorCiudades.textContent = "";
+
+  ciudades.forEach(function(ciudad, posicion){
+    const badge = document.createElement("span");
+    badge.classList.add("badge", "text-bg-primary", "me-1", "mb-1");
+    badge.textContent = posicion + " . " + ciudad;
+    contenedorCiudades.append(badge);
+  });
 }
 
 function verSlice() {
