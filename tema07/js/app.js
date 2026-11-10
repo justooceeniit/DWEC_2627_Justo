@@ -1,5 +1,5 @@
 /*
-  Tarea 7 · DWEC · [Tu nombre y apellidos]
+  Tarea 7 · DWEC · Justo Cenit Ruiz
   Funciones, flechas y clases.
 
   Cómo usar esta plantilla:
