@@ -168,11 +168,12 @@ function buscarAntigua() {
 const numeros = [3, -1, 4, -1, 5, 9];
 document.querySelector("#numeros3").textContent = `const numeros = [${numeros.join(", ")}];`;
 
-// TODO: transformar(lista, operacion) hace a mano lo que hace map, sin usar map:
-//       recorre lista con for…of, llama a operacion con cada elemento, guarda lo que devuelve
-//       en un array nuevo y, al final, devuelve ese array.
 function transformar(lista, operacion) {
-
+  const nuevoArray = [];
+  for (const elemento of lista) {
+    nuevoArray.push(operacion(elemento));
+  }
+  return nuevoArray;
 }
 
 // Ya está hecha: escribe en #salida3 tu resultado, el de map y numeros
@@ -192,20 +193,25 @@ function mostrar3(nombre, resultado, conMap) {
   });
 }
 
-// El modelo: funcionará cuando hayas escrito transformar()
 function verDobles() {
   const resultado = transformar(numeros, (n) => n * 2);
-  mostrar3("dobles", resultado, numeros.map((n) => n * 2));
+  const conMap = numeros.map((n) => n * 2);
+  mostrar3("dobles", resultado, conMap);
   console.log("Ejercicio 3: dobles →", resultado);
 }
 
 function verCuadrados() {
-  // TODO: como verDobles(), con el cuadrado de cada número (n ** 2).
+  const resultado = transformar(numeros, (n) => n ** 2);
+  const conMap = numeros.map((n) => n ** 2);
+  mostrar3("cuadrados", resultado, conMap);
+  console.log("Ejercicio 3: cuadrados →", resultado);
 }
 
 function verAbsolutos() {
-  // TODO: como verDobles(), con el valor absoluto (Math.abs). Pista: Math.abs ya es una función,
-  //       así que se puede pasar tal cual, sin paréntesis.
+  const resultado = transformar(numeros, Math.abs);
+  const conMap = numeros.map(Math.abs);
+  mostrar3("absolutos", resultado, conMap);
+  console.log("Ejercicio 3: absolutos →", resultado);
 }
 
 
