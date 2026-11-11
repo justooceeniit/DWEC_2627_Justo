@@ -15,12 +15,6 @@
 
 console.log("app.js cargado");
 
-
-// ============================================================
-// Ayuda: pinta una lista de textos en un <ul class="list-group">
-// (ya está hecha, y su forEach ya lleva una flecha: es el modelo)
-// ============================================================
-
 function pintarLista(selector, textos) {
   const lista = document.querySelector(selector);
   lista.textContent = "";
@@ -255,22 +249,50 @@ class Alumno {
     this.notas = [];
   }
 
-  // TODO: anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
-  //       si es válida, la añade a this.notas y devuelve true.
-  // TODO: media(): 0 si no hay notas; si hay, la suma con reduce (con flecha) entre el número de notas.
-  // TODO: presentarse(): devuelve «Lucía Martín, de 2.º DAW».
-  //       Recuerda: en una clase, los métodos van sin function y sin comas entre ellos.
+  anadirNota(nota) {
+    if (typeof nota !== "number" || Number.isNaN(nota) || nota < 0 || nota > 10) {
+      return false;
+    }
+    this.notas.push(nota);
+    return true;
+  }
+
+  media() {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+    const suma = this.notas.reduce((total, nota) => total + nota, 0);
+    return suma / this.notas.length;
+  }
+
+  presentarse() {
+    return `${this.nombre}, de ${this.curso}`;
+  }
 }
 
 class AlumnoFCT extends Alumno {
-  // TODO: constructor(nombre, curso, empresa): primero super(nombre, curso) y después guarda la empresa.
-  // TODO: presentarse(): la frase de Alumno (super.presentarse()) más «, en prácticas en TecnoSur».
+  constructor(nombre, curso, empresa) {
+    super(nombre, curso);
+    this.empresa = empresa;
+  }
+
+  presentarse() {
+    return `${super.presentarse()}, en prácticas en ${this.empresa}`;
+  }
 }
 
 const alumnos = [];
 
-// TODO: cuando tengas las clases, crea aquí dos alumnos de partida y añádelos a alumnos con push:
-//       un Alumno con dos notas y un AlumnoFCT con otras dos.
+// Dos alumnos de partida: uno de cada clase con dos notas cada uno
+const alumno1 = new Alumno("Lucía Martín", "2.º DAW");
+alumno1.anadirNota(8);
+alumno1.anadirNota(8);
+alumnos.push(alumno1);
+
+const alumno2 = new AlumnoFCT("Marcos Ruiz", "2.º DAW", "TecnoSur");
+alumno2.anadirNota(7.5);
+alumno2.anadirNota(7);
+alumnos.push(alumno2);
 
 // Ya está hecha: pinta una tarjeta por alumno en #listaAlumnos y actualiza #totalAlumnos
 function pintarAlumnos() {
@@ -315,11 +337,55 @@ function pintarAlumnos() {
 }
 
 function crearAlumno() {
-  // TODO: lee #nombre5, #curso5, #empresa5 y #notas5 (value y trim). Si el nombre está vacío, error en #error5.
-  // TODO: si la empresa está vacía, crea un Alumno con new; si no, un AlumnoFCT.
-  // TODO: si hay notas, sepáralas con split(",") y conviértelas con map((texto) => Number(texto.trim())).
-  //       Si alguna no es válida (some), error en #error5 y no sigas. Si todas lo son, añádelas con anadirNota().
-  // TODO: añade el alumno a alumnos, oculta el error, vacía las casillas y llama a pintarAlumnos().
+  const inputNombre = document.querySelector("#nombre5");
+  const selectCurso = document.querySelector("#curso5");
+  const inputEmpresa = document.querySelector("#empresa5");
+  const inputNotas = document.querySelector("#notas5");
+  const error = document.querySelector("#error5");
+
+  const nombre = inputNombre.value.trim();
+  const curso = selectCurso.value;
+  const empresa = inputEmpresa.value.trim();
+  const textoNotas = inputNotas.value.trim();
+
+  if (nombre === "") {
+    error.textContent = "El nombre del alumno no puede estar vacío.";
+    error.classList.remove("d-none");
+    console.warn("crearAlumno: nombre vacío");
+    return;
+  }
+
+  let notasValidas = [];
+  if (textoNotas !== "") {
+    const listaNotas = textoNotas.split(",").map((t) => Number(t.trim()));
+    const algunaInvalida = listaNotas.some((n) => Number.isNaN(n) || n < 0 || n > 10);
+
+    if (algunaInvalida) {
+      error.textContent = "Las notas deben ser números válidos entre 0 y 10 separados por comas.";
+      error.classList.remove("d-none");
+      console.warn("crearAlumno: notas no válidas detectadas con some");
+      return;
+    }
+    notasValidas = listaNotas;
+  }
+
+  error.classList.add("d-none");
+
+  const nuevoAlumno = empresa === ""
+    ? new Alumno(nombre, curso)
+    : new AlumnoFCT(nombre, curso, empresa);
+
+  notasValidas.forEach((nota) => nuevoAlumno.anadirNota(nota));
+
+  alumnos.push(nuevoAlumno);
+  console.log("crearAlumno: nuevo alumno registrado ->", nuevoAlumno);
+
+  // Vaciar campos del formulario
+  inputNombre.value = "";
+  inputEmpresa.value = "";
+  inputNotas.value = "";
+
+  pintarAlumnos();
 }
 
 pintarAlumnos();
@@ -329,15 +395,18 @@ pintarAlumnos();
 // Ejercicio 6 · Fechas y textos
 // ============================================================
 
-// TODO: diasHasta(fecha) devuelve cuántos días faltan desde hoy hasta fecha (negativo si ya pasó).
-//       Pon hoy a medianoche (hoy.setHours(0, 0, 0, 0)), resta las fechas, divide entre los milisegundos
-//       de un día y redondea con Math.round: con el cambio de hora, la resta no siempre da un número entero.
 function diasHasta(fecha) {
+  const hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
 
+  const milisegundosPorDia = 1000 * 60 * 60 * 24;
+  const diferenciaDias = Math.round((fecha - hoy) / milisegundosPorDia);
+
+  return diferenciaDias;
 }
 
 function mostrarDias() {
-  const valor = document.querySelector("#fecha6").value;        // "2026-12-25", o "" si está vacía
+  const valor = document.querySelector("#fecha6").value;
   const salida = document.querySelector("#salida6a");
 
   if (valor === "") {
@@ -345,28 +414,60 @@ function mostrarDias() {
     return;
   }
 
-  // Ya está hecho: de "2026-12-25" a un Date. Fíjate en el mes - 1: el mes va de 0 a 11
   const [anio, mes, dia] = valor.split("-").map(Number);
   const fecha = new Date(anio, mes - 1, dia);
 
-  // TODO: con diasHasta(fecha), escribe en #salida6a «Faltan N días: será viernes, 25 de diciembre de 2026.»,
-  //       «Es hoy…» o «Fue hace N días…». El nombre de la fecha, con toLocaleDateString("es-ES", {…}).
+  const dias = diasHasta(fecha);
+
+  const opciones = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+  const nombreFecha = fecha.toLocaleDateString("es-ES", opciones);
+
+  if (dias > 0) {
+    salida.textContent = dias === 1
+      ? `Falta 1 día: será ${nombreFecha}.`
+      : `Faltan ${dias} días: será ${nombreFecha}.`;
+  } else if (dias === 0) {
+    salida.textContent = `Es hoy: es ${nombreFecha}.`;
+  } else {
+    const pasados = Math.abs(dias);
+    salida.textContent = pasados === 1
+      ? `Fue hace 1 día: fue ${nombreFecha}.`
+      : `Fue hace ${pasados} días: fue ${nombreFecha}.`;
+  }
+
+  console.log(`Ejercicio 6: fecha calculada (${valor}) -> ${salida.textContent}`);
 }
 
-// TODO: iniciales(nombreCompleto) devuelve las iniciales en mayúsculas: «lucía martín ortega» → «LMO».
-//       Encadena trim, split(" "), filter (para quitar las palabras vacías si hay espacios dobles),
-//       map (la primera letra de cada palabra, en mayúscula) y join("").
 function iniciales(nombreCompleto) {
-
+  return nombreCompleto
+    .trim()
+    .split(" ")
+    .filter((palabra) => palabra !== "")
+    .map((palabra) => palabra[0].toUpperCase())
+    .join("");
 }
 
-// TODO: crearUsuario(nombreCompleto) devuelve las iniciales en minúsculas y tres cifras al azar, de 000 a 999:
-//       «lmo042». Pista: Math.random, Math.floor y padStart(3, "0").
 function crearUsuario(nombreCompleto) {
-
+  const inis = iniciales(nombreCompleto).toLowerCase();
+  const azar = Math.floor(Math.random() * 1000);
+  const numeroTresCifras = String(azar).padStart(3, "0");
+  return `${inis}${numeroTresCifras}`;
 }
 
 function mostrarIniciales() {
-  // TODO: lee #nombre6. Si está vacío, avisa en #salida6b.
-  // TODO: si no, escribe en #salida6b «Iniciales: LMO · usuario: lmo042».
+  const input = document.querySelector("#nombre6");
+  const salida = document.querySelector("#salida6b");
+  const texto = input.value.trim();
+
+  if (texto === "") {
+    salida.textContent = "Escribe un nombre completo.";
+    console.warn("mostrarIniciales: nombre vacío");
+    return;
+  }
+
+  const ini = iniciales(texto);
+  const usr = crearUsuario(texto);
+
+  salida.textContent = `Iniciales: ${ini} · usuario: ${usr}`;
+  console.log(`Ejercicio 6: iniciales="${ini}", usuario="${usr}"`);
 }
